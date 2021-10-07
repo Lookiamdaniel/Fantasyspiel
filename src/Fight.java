@@ -34,6 +34,6 @@ public class Fight {
     }
 
     public static void fight(Hero hero, Weapon weapon, Monster monster) {
-        system.print
+
     }
 }
