@@ -6,7 +6,7 @@ public class Game {
     Scanner scanner;
 
 
-    public void startGame() {
+    public void startGame() throws InterruptedException {
         System.out.println("\n                  Fantasyfight 4 \n\n"
                 + "Freefight-Modus (F)         Story-Modus (S)");
 

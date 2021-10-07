@@ -12,7 +12,7 @@ private Hero hero;
 private Weapon weapon;
 private Monster monster;
 
-    public void startFreefight () {
+    public void startFreefight () throws InterruptedException {
 
         createHero();
         createWeapon();
@@ -20,38 +20,6 @@ private Monster monster;
 
         Fight.startFight(hero, weapon, monster);
     }
-
-    public void createHero() {
-        String hKlasse;
-
-        System.out.println("Herzlich Willkommen, du befindest dich in dem FreeFight-Mouds.\n\n Btte erstelle deinen Helden:"
-                + "\n Name:");
-
-        scan = new Scanner(System.in);
-        String hName = scan.next();
-
-
-        System.out.println("\n Klasse wählen: Hero.Wizard (1), Hero.Hero.Barbar (2), Hero.Elb (3)");
-        scan = new Scanner(System.in);
-        hKlasse = scan.nextLine();
-
-        while (true) {
-            if (hKlasse.equals("1")) {
-                hero = new Wizard(hName, 10, 10, 10, 10, 10);
-                break;
-            } else if (hKlasse.equals("2")) {
-                hero = new Barbar(hName, 10, 10, 10, 10, 10, 10);
-                break;
-            } else if (hKlasse.equals("3")) {
-                hero = new Elb(hName, 10, 10, 10, 10, 10, 10);
-                break;
-            } else{
-                System.out.println("Bitte gib eine Zahl zwischen 1 und 3 ein, um deine Heldenklasse zu wählen.");
-            }
-
-            }
-        }
-
     public void createWeapon () {
 
         String hWaffe;
@@ -79,6 +47,39 @@ private Monster monster;
         }
 
     }
+
+    public void createHero() {
+        String hKlasse;
+
+        System.out.println("Herzlich Willkommen, du befindest dich in dem FreeFight-Mouds.\n\n Btte erstelle deinen Helden:"
+                + "\n Name:");
+
+        scan = new Scanner(System.in);
+        String hName = scan.next();
+
+
+        System.out.println("\n Klasse wählen: Hero.Wizard (1), Hero.Hero.Barbar (2), Hero.Elb (3)");
+        scan = new Scanner(System.in);
+        hKlasse = scan.nextLine();
+
+        while (true) {
+            if (hKlasse.equals("1")) {
+                hero = new Wizard(hName, 10, 10, 10, 10, 10, weapon);
+                break;
+            } else if (hKlasse.equals("2")) {
+                hero = new Barbar(hName, 10, 10, 10, 10, 10, 10, weapon);
+                break;
+            } else if (hKlasse.equals("3")) {
+                hero = new Elb(hName, 10, 10, 10, 10, 10, 10, weapon);
+                break;
+            } else{
+                System.out.println("Bitte gib eine Zahl zwischen 1 und 3 ein, um deine Heldenklasse zu wählen.");
+            }
+
+            }
+        }
+
+
 
     public void createMonster () {
 
