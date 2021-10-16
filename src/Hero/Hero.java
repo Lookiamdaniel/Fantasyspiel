@@ -1,7 +1,5 @@
 package Hero;
 
-import Weapon.Weapon;
-
 import java.util.Random;
 
 public class Hero {
@@ -19,6 +17,12 @@ public class Hero {
         this.luck = luck;
         this.strength = strength;
         this.weapon = weapon;
+
+        Random random = new Random();
+        float singleLuck;
+        singleLuck = (float) (random.nextFloat() * (luck-0.5) + 0.5);
+
+        attackdamage = strength * singleLuck;
     }
 
     public float calcAttackdamage (int strength, int luck) {
