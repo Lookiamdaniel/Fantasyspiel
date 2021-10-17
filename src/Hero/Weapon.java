@@ -13,4 +13,10 @@ public class Weapon {
         this.range = range;
         this.special = special;
     }
+    public int getMaterial(){
+        return material;
+    }
+    public int getRange(){
+        return range;
+    }
 }

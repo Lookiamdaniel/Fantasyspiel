@@ -10,14 +10,24 @@ private Scanner scan;
 private Hero hero;
 private Weapon weapon;
 private Monster monster;
+private String hName;
 
     public void startFreefight () throws InterruptedException {
 
+        setName();
         createHero();
         createWeapon();
         createMonster();
 
         Fight.startFight(hero, weapon, monster);
+    }
+
+    public void setName(){
+        System.out.println("Herzlich Willkommen, du befindest dich in dem FreeFight-Mouds.\n\n Btte erstelle deinen Helden:"
+                + "\n Name:");
+
+        scan = new Scanner(System.in);
+        hName = scan.next();
     }
     public void createWeapon () {
 
@@ -50,12 +60,6 @@ private Monster monster;
     public void createHero() {
         String hKlasse;
 
-        System.out.println("Herzlich Willkommen, du befindest dich in dem FreeFight-Mouds.\n\n Btte erstelle deinen Helden:"
-                + "\n Name:");
-
-        scan = new Scanner(System.in);
-        String hName = scan.next();
-
 
         System.out.println("\n Klasse wählen: Hero.Wizard (1), Hero.Hero.Barbar (2), Hero.Elb (3)");
         scan = new Scanner(System.in);
@@ -66,7 +70,7 @@ private Monster monster;
                 hero = new Wizard(hName, 10, 10, 10, 10, weapon);
                 break;
             } else if (hKlasse.equals("2")) {
-                hero = new Barbar(hName, 10, 10, 10, 10, 10, weapon);
+                hero = new Barbar(hName, 10, 10, 10, 10, weapon);
                 break;
             } else if (hKlasse.equals("3")) {
                 hero = new Elb(hName, 10, 10, 10, 10, 10, weapon);
@@ -85,25 +89,25 @@ private Monster monster;
         int hMonster;
         Monster aMonster[] = new Monster[4];
 
-        System.out.println("\n gegnerisches Monster wählen:  Drache Dystopius (1), Lindwurm Lodan (2), Medusa (3), Ork OhneKompromiss (4) oder ein zufälliges Monster (5)");
+        System.out.println("\n gegnerisches Hero.Monster wählen:  Drache Dystopius (1), Lindwurm Lodan (2), Medusa (3), Ork OhneKompromiss (4) oder ein zufälliges Hero.Monster (5)");
         scan = new Scanner(System.in);
         hMonster = scan.nextInt();
 
         while (true){
             if (hMonster == 1){
-                monster = new Monster("Dystopius", 10, 10, 10);
+                monster = new Monster("Dystopius", 10, 10, 10, 10);
                 aMonster[0] = monster;
                 break;
             } else if (hMonster==2){
-                monster = new Monster("Lodan", 10, 10, 10);
+                monster = new Monster("Lodan", 10, 10, 10, 10);
                 aMonster[1]=monster;
                 break;
             } else if (hMonster==3) {
-                monster = new Monster("Lodan", 10, 10, 10);
+                monster = new Monster("Lodan", 10, 10, 10, 10);
                 aMonster[2] = monster;
                 break;
             } else if (hMonster==4) {
-                monster = new Monster("Lodan", 10, 10, 10);
+                monster = new Monster("Lodan", 10, 10, 10, 10);
                 aMonster[3] = monster;
                 break;
             } else {

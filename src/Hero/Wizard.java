@@ -2,13 +2,16 @@ package Hero;
 
 public class Wizard extends Hero {
 
-    private int magic;
+    private float magicHeal;
 
 
-    public Wizard(String name, int healthpoints, int luck, int strength, int magic, Weapon weapon) {
+    public Wizard(String name, int healthpoints, int luck, int strength, float magicHeal, Weapon weapon) {
         super(name, healthpoints, luck, strength, weapon);
-        this.magic = magic;
-
-
+        this.magicHeal = magicHeal;
     }
+
+    public void heal (float magicHeal){
+        healthpoints += magicHeal;
+    }
+
 }
