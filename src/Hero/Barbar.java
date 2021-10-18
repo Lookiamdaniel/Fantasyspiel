@@ -8,6 +8,7 @@ public class Barbar extends Hero {
     public Barbar(String name, int healthpoints, int luck, int strength, int anger, Weapon weapon) {
         super(name, healthpoints, luck, strength, weapon);
         this.anger = anger;
+        attackdamage+=anger;
 
     }
 

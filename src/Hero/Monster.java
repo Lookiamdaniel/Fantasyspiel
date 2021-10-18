@@ -5,13 +5,13 @@ import java.util.Random;
 public class Monster {
 
     private String name;
-    protected float healthpoints;
+    protected double healthpoints;
     private int luck;
     private int strength;
-    private float attackdamage;
+    private double attackdamage;
     private int range;
 
-    public Monster (String name, float healthpoints, int luck, int strength, int range) {
+    public Monster (String name, double healthpoints, int luck, int strength, int range) {
         this.name = name;
         this.healthpoints = healthpoints;
         this.luck = luck;
@@ -19,8 +19,8 @@ public class Monster {
         this.range = range;
 
         Random random = new Random();
-        float singleLuck;
-        singleLuck = (float) (random.nextFloat() * (luck-0.5) + 0.5);
+        double singleLuck;
+        singleLuck = (double) (random.nextDouble() * (luck-0.5) + 0.5);
 
         attackdamage = strength * singleLuck;
     }
@@ -33,21 +33,25 @@ public class Monster {
         return range;
     }
 
-    public float getHealthpoints(){ return  healthpoints;}
+    public double getHealthpoints(){ return  healthpoints;}
 
-    public void setHealthpoints (float newHealthpoints) {
-        healthpoints = newHealthpoints;
+    public void setHealthpoints (double subtrahend) {
+        healthpoints -= subtrahend;
     }
 
-    /*public float calcAttackdamage (int strength, int luck) {
+    public double getAttackdamage(){
+        return attackdamage;
+    }
+
+    /*public double calcAttackdamage (int strength, int luck) {
         attackdamage = strength * calcLuck(luck);
         return attackdamage;
     }
 
-    public float calcLuck (int luck) {
+    public double calcLuck (int luck) {
         Random random = new Random();
-        float singleLuck;
-        singleLuck = (float) (random.nextFloat() * (luck-0.5) + 0.5);
+        double singleLuck;
+        singleLuck = (double) (random.nextdouble() * (luck-0.5) + 0.5);
         return singleLuck;
     }*/
 }
