@@ -15,11 +15,14 @@ private String hName;
     public void startFreefight () throws InterruptedException {
 
         setName();
-        createHero();
         createWeapon();
+        createHero();
         createMonster();
 
         Fight.startFight(hero, weapon, monster);
+
+        Game game = new Game();
+        game.startGame();
     }
 
     public void setName(){
@@ -29,6 +32,7 @@ private String hName;
         scan = new Scanner(System.in);
         hName = scan.next();
     }
+
     public void createWeapon () {
 
         String hWaffe;
@@ -81,8 +85,6 @@ private String hName;
 
             }
         }
-
-
 
     public void createMonster () {
 

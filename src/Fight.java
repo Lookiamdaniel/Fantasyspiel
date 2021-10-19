@@ -28,6 +28,7 @@ public class Fight {
                     TimeUnit.SECONDS.sleep(1);
                     System.out.println(6 - i);
                 }
+                winnerAttack = 2;
                 fightCircle(hero, weapon, monster);
             break;
             } else {
@@ -54,8 +55,6 @@ public class Fight {
         } else if (hero.getHealthpoints()<0){
             System.out.println("Du hast den Kampf leider verloren und bist gestorben. Das Monster hatte noch"+monster.getHealthpoints()+"Leben.");
         }
-        Game game = new Game();
-        game.startGame();
     }
 
     public static void monsterAttack(Hero hero, Weapon weapon, Monster monster) {
@@ -147,13 +146,13 @@ public class Fight {
             }
         }
 
-        System.out.println("Von wo willst du angreifen? \n a = LINKS\n"
+        System.out.println("Von wo willst du angreifen? \na = LINKS\n"
         +"d = RECHTS\n"
-        +"w = OBEN"
+        +"w = OBEN\n"
         +"s = TIEF");
 
-        Scanner scanner = new Scanner(System.in);
-        sattack = scanner.next();
+        Scanner scanAttack = new Scanner(System.in);
+        sattack = scanAttack.next();
 
         if (sattack.equals("a")){
             sattack = "LINKS";
