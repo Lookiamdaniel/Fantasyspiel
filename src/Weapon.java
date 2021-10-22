@@ -1,5 +1,3 @@
-package Hero;
-
 public class Weapon {
 
     private String name;
@@ -18,5 +16,8 @@ public class Weapon {
     }
     public int getRange(){
         return range;
+    }
+    public String getName(){
+        return name;
     }
 }

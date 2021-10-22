@@ -8,7 +8,7 @@ public class Game {
 
     public void startGame() throws InterruptedException {
         System.out.println("\n                  Fantasyfight 4 \n\n"
-                + "Freefight-Modus (F)         Story-Modus (S)");
+                + "Freefight-Modus (F)         Story-Modus (S) Anm. des Autors: leider noch in Arbeit:(. Die Kampftechniken, können aber auch alle im Freefight ausprobiert werden.");
 
         scanner = new Scanner(System.in);
 
