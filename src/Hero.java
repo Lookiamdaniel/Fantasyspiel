@@ -68,7 +68,7 @@ public class Hero {
 
     public void attack(String attackDescription, String musterDefense, Monster monster) {
         Random random = new Random();
-        int randomDefense = random.nextInt((3-0)+1);
+        int randomDefense = random.nextInt(3);
 
         if (randomDefense == 1) {
             System.out.println("Das Monster konnte den Angriff abwehren. Geh in Deckung!");
@@ -85,11 +85,11 @@ public class Hero {
 
     public void distanceAttack(Monster monster){
         if (monster.getRange() < weapon.getRange()) {
-            int rangeProbabilty = weapon.getRange() - monster.getRange() * 10;
+            int rangeProbabilty = (weapon.getRange() - monster.getRange()) * 10;
             System.out.println("Du hast mit deiner Waffe eine größere Reichweite, als das Monster. \n"
                     + "Wenn du sie nutzt, hat das Monster keine Chance.\n "
-                    + "Allerdings kann dich das Monster beim Vorbereiten auf den Angriff auf Entfernung"
-                    + "mit einer Wahrscheinlichkeit von" + rangeProbabilty + "% unterbrechen"
+                    + "Allerdings kann dich das Monster beim Vorbereiten auf den Angriff auf Entfernung "
+                    + "mit einer Wahrscheinlichkeit von " + (100-rangeProbabilty) + "% unterbrechen"
                     + " und dir Schaden zufügen.\n"
                     + "\n Wenn du deine Reichweite nutzen willst, drücke '1', andernfalls irgendein anderes Zeichen!");
 
@@ -98,14 +98,15 @@ public class Hero {
 
             if (tryRange.equals("1")) {
                 Random random = new Random();
-                int saveRandom = random.nextInt((100 - 0) + 1);
+                int saveRandom = random.nextInt(99);
                 if (saveRandom <= rangeProbabilty) {
                     monster.setHealthpoints(getAttackdamage());
-                    System.out.println(monster.getName()+ " hat noch" + monster.getHealthpoints() + " Leben.");
+                    System.out.println(monster.getName()+ " hat noch " + monster.getHealthpoints() + " Leben.");
                     System.out.println("Du kannst nochmal angreifen!");
                     fight.setWinnerAttack(3);
                 } else {
                     fight.setWinnerAttack(4);
+                    System.out.println("Leider hat dich das Monster unterbrochen und greift jetzt an!");
                 }
             }
         }

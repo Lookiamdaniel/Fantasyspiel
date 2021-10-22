@@ -80,7 +80,7 @@ private Fight fight;
             hKlasse = scan.nextLine();
 
             if (hKlasse.equals("1")) {
-                hero = new Wizard(hName, 35, 1.2, 4, fight,7, weapon);
+                hero = new Wizard(hName, 35, 1.2, 4, fight,5, weapon);
                 break;
             } else if (hKlasse.equals("2")) {
                 hero = new Barbar(hName, 50, 0.8, 10, 2, weapon, fight);
@@ -110,19 +110,19 @@ private Fight fight;
             hMonster = scan.nextInt();
 
             if (hMonster == 1){
-                monster = new Monster("Dystopius", 60, 1.2, 13, 8, fight);
+                monster = new Monster("Dystopius", 60, 1.2, 11, 8, 800, fight);
                 aMonster[0] = monster;
                 break;
             } else if (hMonster==2){
-                monster = new Monster("Lodan", 55, 1, 12, 4, fight);
+                monster = new Monster("Lodan", 55, 1, 13, 4, 1100, fight);
                 aMonster[1]=monster;
                 break;
             } else if (hMonster==3) {
-                monster = new Monster("Medusa", 45, 1.5, 7, 1, fight);
+                monster = new Monster("Medusa", 45, 1.5, 7, 1, 600, fight);
                 aMonster[2] = monster;
                 break;
             } else if (hMonster==4) {
-                monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, fight);
+                monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, 800, fight);
                 aMonster[3] = monster;
                 break;
             } else {

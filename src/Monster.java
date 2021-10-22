@@ -10,17 +10,19 @@ public class Monster {
     private int strength;
     private double attackdamage;
     private int range;
-    private Fight fight;
     private int speed;
+    private Fight fight;
 
-    public Monster (String name, double healthpoints, double luck, int strength, int range, int speed; Fight fight) {
+
+    public Monster(String name, double healthpoints, double luck, int strength, int range, int speed,Fight fight) {
         this.name = name;
         this.healthpoints = healthpoints;
         this.luck = luck;
         this.strength = strength;
         this.range = range;
-        this.fight = fight;
         this.speed = speed;
+        this.fight = fight;
+
     }
 
     public String getName(){
@@ -71,15 +73,16 @@ public class Monster {
         String musterDefense;
 
         if (getRange() > weapon.getRange()){ //Möglichkeit für das Monster auf Entfernung anzugreifen; wird durch den Zufall bestimmt
+            int winRange = getRange() - weapon.getRange();
             Random random = new Random();
-            int randRange = random.nextInt(((11-getRange())-0)+1)+1;
+            int randRange = random.nextInt(10);
 
-            if (randRange == 0){
+            if (randRange <= winRange){
                 System.out.println("Das Monster hat eine kann auf größerer Entfernung angreifen, als du und nutzt diese. Du hast keine Chance.");
 
                 hero.setHealthpoints(getAttackdamage()); //Schaden am Helden wird ausgeführt
 
-                System.out.println("Du hast noch" + hero.getHealthpoints() + "Leben.");
+                System.out.println("Du hast noch " + hero.getHealthpoints() + "Leben.");
                 System.out.println("Achtung, es greift nochmal an!"); //jetzt folgt Nahkampfangriff
             }
         }

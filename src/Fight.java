@@ -36,7 +36,7 @@ public class Fight {
                     TimeUnit.SECONDS.sleep(1);
                     System.out.println(4 - i);
                 }
-                winnerAttack = 2;
+                winnerAttack = 1;
                 break;
             } else {
                 System.out.println("Bitte gib 1 ein, wenn du bereit bist.");
@@ -59,7 +59,7 @@ public class Fight {
                 x.becomeAngry();
             }
 
-            if (winnerAttack == 2){
+            if (winnerAttack == 2 || winnerAttack == 4){
                 monster.offense(hero, weapon);
             } else {
                 hero.offense(monster);
