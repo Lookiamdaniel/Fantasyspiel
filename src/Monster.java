@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Monster {
 
@@ -63,6 +64,20 @@ public class Monster {
         return attackdamage;
     }
 
+    //mit den folgenden Methoden werden die klassischen Monster kreiert.
+    public void createOhnekompromiss(Monster monster){
+        monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, 700, fight);
+    }
+    public void createLodan(Monster monster){
+        monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
+    }
+    public void createMedusa(){
+        Monster monster = new Monster("Medusa", 45, 1.5, 7, 1, 300, fight);
+    }
+    public void createDystopius(){
+        Monster monster = new Monster("Dystopius", 60, 1.2, 11, 8, 600, fight);
+    }
+
     public void setFight(Fight fight){
         this.fight = fight;
     }
@@ -79,11 +94,8 @@ public class Monster {
 
             if (randRange <= winRange){
                 System.out.println("Das Monster hat eine kann auf größerer Entfernung angreifen, als du und nutzt diese. Du hast keine Chance.");
-
-                hero.setHealthpoints(getAttackdamage()); //Schaden am Helden wird ausgeführt
-
-                System.out.println("Du hast noch " + hero.getHealthpoints() + "Leben.");
-                System.out.println("Achtung, es greift nochmal an!"); //jetzt folgt Nahkampfangriff
+                fight.setWinnerAttack(2);
+                fight.madeDamage();
             }
         }
 
@@ -116,9 +128,14 @@ public class Monster {
     //offense führt immer zu attack
 
     public void attack (String attackDescription, String musterDefense, Hero hero) {
-        Scanner scanner = new Scanner(System.in);
+        try {
+            TimeUnit.MILLISECONDS.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        System.out.println("Das Monster greift " + attackDescription + " an!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(getName() + " greift " + attackDescription + " an!");
         Date start = new Date();
         long s = System.currentTimeMillis();
         try {
@@ -133,9 +150,7 @@ public class Monster {
             }  else {
                 System.out.println("Zu langsam. Das tut weh.");
                 fight.setWinnerAttack(2);
-                hero.setHealthpoints(getAttackdamage());
-                System.out.println("Du hast noch " + hero.getHealthpoints() + " Leben.");
-                System.out.println("Achtung, es greift nochmal an!");
+                fight.madeDamage();
             }
         } catch (Exception e) {
             e.printStackTrace();

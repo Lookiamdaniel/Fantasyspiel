@@ -15,15 +15,15 @@ public class Fight {
         this.monster = monster;
     }
 
-    public void startFight() throws InterruptedException {
+    public void startFight() {
 
-
-        System.out.println("So kämpfst du: \n Lege deine Finger auf die Tasten 'W,A,S,D'. \n" //Erklärung des Spielprinzips
+        System.out.println("So kämpfst du: \n Lege deine Finger der linken Hand auf die Tasten 'W,A,S,D' \n"
+                + "und einen Finger der rechten Hand auf die Eingabe-Taste.\n"//Erklärung des Spielprinzips
                 + "Das Monster wird jede Runde einen zufälligen Angriff durchführen, für den du nur eine Sekunde Zeit hast ihn abzuwehren\n\n"
-                + "Wenn das Monster LINKS angreift, drücke 'A'. \n"
-                + "Wenn das Monster RECHTS angreift, drücke 'D'. \n"
-                + "Wenn das Monster OBEN angreift, drücke 'W'. \n"
-                + "Wenn das Monster TIEF angreift, drücke 'S'. \n\n"
+                + "Wenn das Monster LINKS angreift, drücke 'A' und anschließend 'Enter'. \n"
+                + "Wenn das Monster RECHTS angreift, drücke 'D' und anschließend 'Enter'. \n"
+                + "Wenn das Monster OBEN angreift, drücke 'W' und anschließend 'Enter'. \n"
+                + "Wenn das Monster TIEF angreift, drücke 'S' und anschließend 'Enter'. \n\n"
                 + "Wenn du bereit bist drücke 1!");
 
         while (true) {
@@ -33,10 +33,16 @@ public class Fight {
             if (bereit == 1) {
                 System.out.println("Der Kampf startet in...");
                 for (int i = 1; i <= 3; i++) {
-                    TimeUnit.SECONDS.sleep(1);
+
                     System.out.println(4 - i);
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
-                winnerAttack = 1;
+                winnerAttack = 2;
                 break;
             } else {
                 System.out.println("Bitte gib 1 ein, wenn du bereit bist.");
@@ -68,10 +74,12 @@ public class Fight {
         } // hier spielt sich der eigentliche Kampf ab
 
         if (monster.getHealthpoints()<=0) { //Meldung, wenn der Held den Kampf gewonnen hat, anschließend ist der Freefight vorbei
-            System.out.println("Jawoll, du hast das Monster besiegt und selber noch " + hero.getHealthpoints() + "Leben.");
+            System.out.println("Jawoll, du hast das Monster besiegt und selber noch " + hero.getHealthpoints() + " Leben.");
         }
         else if (hero.getHealthpoints()<=0){ //Meldung, wenn das Monster den Kampf gewonnen hat, anschließend ist der Freefight vorbei
-            System.out.println("Du hast den Kampf leider verloren und bist gestorben. Das Monster hatte noch "+monster.getHealthpoints()+"Leben.");
+            System.out.println("Du hast den Kampf leider verloren und bist gestorben. Das Monster hatte noch "+monster.getHealthpoints()+" Leben.");
+            Game game = new Game();
+            game.startGame();
         }
     }
 
@@ -103,28 +111,34 @@ public class Fight {
         } else if (hero.getHealthpoints()<0){
             System.out.println("Du hast den Kampf leider verloren und bist gestorben. Das Monster hatte noch"+monster.getHealthpoints()+"Leben.");
         }
-    }
+    }*/
 
-    public void madeDamage (Hero hero, Monster monster){ //1,3=hero, 2,4=monster
+    public void madeDamage(){ //1,3=hero, 2,4=monster
         if (winnerAttack == 1 || winnerAttack == 3) {
             monster.setHealthpoints(hero.getAttackdamage());
-            System.out.println("Das Monster hat noch" + monster.getHealthpoints() + " Leben.");
-            System.out.println("Du kannst nochmal angreifen!");
+            if (monster.getHealthpoints() >= 0){
+                System.out.println(monster.getName()+" hat noch " + monster.getHealthpoints() + " Leben.");
+                System.out.println("Du kannst nochmal angreifen!");
+            }
             winnerAttack = 1;
         } else {
             hero.setHealthpoints(monster.getAttackdamage());
-            System.out.println("Du hast noch" + hero.getHealthpoints() + "Leben.");
-            System.out.println("Achtung, es greift nochmal an!");
+            if (hero.getHealthpoints() >= 0){
+                System.out.println("Du hast noch " + hero.getHealthpoints() + " Leben.");
+                System.out.println(monster.getName()+" angreifen!");
+            }
             winnerAttack = 2;
         }
-    }*/
+    }
 
     public void setWinnerAttack(int winnerAttack){
         this.winnerAttack = winnerAttack;
     }
+
     public int getWinnerAttack(){
         return winnerAttack;
     }
+
     public void test (){
         System.out.println("Test");
 

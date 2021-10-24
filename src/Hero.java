@@ -54,6 +54,21 @@ public class Hero {
         this.fight = fight;
     }
 
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    //mit den folgenden Methoden werden die klassischen Helden kreiert.
+    public void createElb(String hName){
+        Hero hero = new Elb(hName, 40, 1.5, 7, 2, 1, weapon, fight);
+    }
+    public void createWizard(String hName){
+        Hero hero = new Wizard(hName, 35, 1.2, 4, fight,5, weapon);
+    }
+    public void createBarbar(String hName){
+        Hero hero = new Barbar(hName, 50, 0.8, 10, 2, weapon, fight);
+    }
+
     public void offense(Monster monster) {
 
          // gibt Helden die Chance auf einen Fernangriff
@@ -75,11 +90,8 @@ public class Hero {
             fight.setWinnerAttack(2);
 
         } else {
-            System.out.println("Du hast das Monster getroffen! Probiere deine Combo fortzusetzen!");
             fight.setWinnerAttack(1);
-            monster.setHealthpoints(getAttackdamage());
-            System.out.println(monster.getName() + " hat noch " + monster.getHealthpoints() + " Leben.");
-            System.out.println("Du kannst nochmal angreifen!");
+            fight.madeDamage();
         }
     }
 
@@ -100,10 +112,8 @@ public class Hero {
                 Random random = new Random();
                 int saveRandom = random.nextInt(99);
                 if (saveRandom <= rangeProbabilty) {
-                    monster.setHealthpoints(getAttackdamage());
-                    System.out.println(monster.getName()+ " hat noch " + monster.getHealthpoints() + " Leben.");
-                    System.out.println("Du kannst nochmal angreifen!");
                     fight.setWinnerAttack(3);
+                    fight.madeDamage();
                 } else {
                     fight.setWinnerAttack(4);
                     System.out.println("Leider hat dich das Monster unterbrochen und greift jetzt an!");
