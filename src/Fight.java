@@ -83,36 +83,6 @@ public class Fight {
         }
     }
 
-    /*public void fightCircle(){
-
-        while (monster.getHealthpoints() > 0 || hero.getHealthpoints() > 0){
-
-            if (winnerAttack == 2){
-                monsterAttack(hero, weapon, monster);
-            } else {
-                heroAttack(hero, weapon, monster);
-            }
-            if (hero instanceof Healable) {
-                Healable x = (Healable) hero;
-                x.heal();
-            }
-            if (hero instanceof Barbar) {
-                Barbar x = (Barbar) hero;
-                x.becomeAngry();
-            }
-            if (hero instanceof Anger) {
-                Anger x = (Anger) hero;
-                x.becomeAngry();
-            }
-        }
-
-        if (monster.getHealthpoints()<0){
-            System.out.println("Jawoll, du hast das Monster besiegt und selber noch"+hero.getHealthpoints()+"Leben.");
-        } else if (hero.getHealthpoints()<0){
-            System.out.println("Du hast den Kampf leider verloren und bist gestorben. Das Monster hatte noch"+monster.getHealthpoints()+"Leben.");
-        }
-    }*/
-
     public void madeDamage(){ //1,3=hero, 2,4=monster
         if (winnerAttack == 1 || winnerAttack == 3) {
             monster.setHealthpoints(hero.getAttackdamage());
@@ -125,7 +95,7 @@ public class Fight {
             hero.setHealthpoints(monster.getAttackdamage());
             if (hero.getHealthpoints() >= 0){
                 System.out.println("Du hast noch " + hero.getHealthpoints() + " Leben.");
-                System.out.println(monster.getName()+" angreifen!");
+                System.out.println(monster.getName()+" greift an!");
             }
             winnerAttack = 2;
         }

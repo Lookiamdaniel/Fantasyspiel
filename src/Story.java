@@ -6,35 +6,35 @@ public class Story {
     private Hero hero;
     private Monster monster;
 
+
     public void startStory () {
 
         Freefight freefight = new Freefight();
 
-
         System.out.println("Kawumm."
-                        +"\n Unter dir fühlt sich alles sehr weich an. Du liegst auf einer Wiese oder so. Du spürst das leichte Streicheln vom Wind."
-                        +"\n Aber wo bist du? Die Vögel hier hören sich anders an als daheim. Du öffnest die Augen, nein du probierst die Augen zu öffnen, "
-                        +"\n aber es geht nicht. Du bekommst einen Schreck. Heißt das ich kann nicht mehr sehen?"
-                        +"\n Das ist richtig und deswegen bin ich da, als Stimme in deinem Kopf. Ich bin dein Geist und deine Augen für die Außenwelt."
-                        +"\n Du bist nun auf der Lichtung des Waldes und wirst dich nach draußen kämpfen müssen. Welcher Wald das ist, dass weiß niemand so richtig "
-                        +"\n und warum du hier bist ebenfalls, aber ich kann dir helfen dem zu entfliehen."
-                        +"\n Dies hier ist kein normaler Wald. Es ist ein Wald voller Helden und Monster. Du bist ein Held und wirst dich an den Monstern "
-                        +"\n vorbei in die Freiheit kämpfen müssen."
-                        +"\n Wie heißt du?");
+                        +"\nUnter dir fühlt sich alles sehr weich an. Du liegst auf einer Wiese oder so. Du spürst das leichte Streicheln vom Wind."
+                        +"\nAber wo bist du? Die Vögel hier hören sich anders an als daheim. Du öffnest die Augen, nein du probierst die Augen zu öffnen, "
+                        +"\naber es geht nicht. Du bekommst einen Schreck. Heißt das ich kann nicht mehr sehen?"
+                        +"\nDas ist richtig und deswegen bin ich da, als Stimme in deinem Kopf. Ich bin dein Geist und deine Augen für die Außenwelt."
+                        +"\nDu bist nun auf der Lichtung des Waldes und wirst dich nach draußen kämpfen müssen. Welcher Wald das ist, dass weiß niemand so richtig "
+                        +"\nund warum du hier bist ebenfalls, aber ich kann dir helfen dem zu entfliehen."
+                        +"\nDies hier ist kein normaler Wald. Es ist ein Wald voller Helden und Monster. Du bist ein Held und wirst dich an den Monstern "
+                        +"\nvorbei in die Freiheit kämpfen müssen."
+                        +"\nWie heißt du?");
 
         Scanner scan = new Scanner(System.in);
         String hName = scan.nextLine();
 
         System.out.println("Ah hallo " + hName
                         +"\n"
-                        +"\n Warte."
-                        +"\n Hörst du das? Das Rascheln dort. Oh je ich konnte dir noch nicht einmal alles erklären und schon musst du gegen dein erstes Monster kämpfen."
-                        +"\n Egal, du siehtst stark aus, ich denke, du kannst es besiegen. Ich glaube, es ist der Lindwurm Lodan."
-                        +"\n Los gehts, du schaffst das!");
+                        +"\nWarte."
+                        +"\nHörst du das? Das Rascheln dort. Oh je ich konnte dir noch nicht einmal alles erklären und schon musst du gegen dein erstes Monster kämpfen."
+                        +"\nEgal, du siehtst stark aus, ich denke, du kannst es besiegen. Ich glaube, es ist der Lindwurm Lodan."
+                        +"\nLos gehts, du schaffst das!");
 
         weapon = new Weapon("Hände", 1, 1, 1);
         hero = new Hero(hName, 30, 1, 5, weapon, fight);
-        monster.createLodan(monster);
+        monster = new Monster("Lodan", 55, 1, 13, 4, 1000, fight);
         fight = new Fight(hero, weapon, monster);
         hero.setFight(fight);
         monster.setFight(fight);
@@ -42,7 +42,7 @@ public class Story {
         fight.startFight();
 
         System.out.println("Respekt, dass war eine starke Leistung. Es wird höchste Zeit, dass du dir eine Waffe aussuchst. "
-                        +"\n Wähle waise.");
+                        +"\nWähle waise.");
 
         freefight.createWeapon();
         hero.setWeapon(weapon);
@@ -53,7 +53,7 @@ public class Story {
                         +"\n"
                         +"\nDu siehst ihn schon auf Entfernung. Der Ork Ohnekompromiss ist dein nächster Gegner. Der sollte kein Problem für dich sein");
 
-        monster.createOhnekompromiss(monster);
+        monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, 700, fight);
         fight = new Fight(hero, weapon, monster);
         fight.startFight();
 
@@ -65,7 +65,7 @@ public class Story {
         System.out.println("Na so lässt man sich doch gerne sehen. Mit deinen neuen Fähigkeiten sollte unser nächster Gegner kein Problem sein."
                         +"\nEs ist die Medusa. Dort drüben an der Brücke terrorisiert sie die Waldbewohner. Wir müssen an Medusa vorbei und über die Brücke, um aus dem Wald zu gelangen.");
 
-        monster.createMedusa();
+        monster = new Monster("Medusa", 45, 1.5, 7, 1, 300, fight);
         fight = new Fight(hero, weapon, monster);
         fight.startFight();
 
@@ -74,7 +74,7 @@ public class Story {
                         +"\n\n\n Oh je. Wir sind zu spät angekommen. Dystopius dreht schon seine Kreise und tötet jeden, der den Wald verlassen will."
                         +"\n\nEr hat uns gesehen und greift an. Du bist der beste Kämpfer des Waldes. Du kannst ihn besiegen.");
 
-        monster.createDystopius();
+        monster = new Monster("Dystopius", 60, 1.2, 11, 8, 600, fight);
         fight = new Fight(hero, weapon, monster);
         fight.startFight();
 

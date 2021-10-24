@@ -47,16 +47,16 @@ private Fight fight;
             hWaffe = scan.nextLine();
 
             if (hWaffe.equals("1")) {
-                weapon.createKönigsmörder();
+                weapon = new Weapon("Königsmörder", 5, 3, 1);
                 break;
             } else if (hWaffe.equals("2")) {
-                weapon.createFlinkehände();
+                weapon = new Weapon("Königsmörder", 5, 3, 1);
                 break;
             } else if (hWaffe.equals("3")) {
-                weapon.createKilometerkiller();
+                weapon = new Weapon("Kilometerkiller", 1, 9, 1);
                 break;
             } else if (hWaffe.equals("4")) {
-                weapon.createBerserker();
+                weapon = new Weapon("Berserker", 7, 2, 1);
                 break;
             } else {
                 System.out.println("Bitte gib eine Zahl zwischen 1 und 4 ein, um deine Waffe zu wählen.");
@@ -65,6 +65,9 @@ private Fight fight;
 
     }
 
+    public void createLodan(Monster monster){
+        monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
+    }
     public void createHero() {
         String hKlasse;
 
@@ -80,13 +83,13 @@ private Fight fight;
             hKlasse = scan.nextLine();
 
             if (hKlasse.equals("1")) {
-                hero.createWizard(hName);
+                hero = new Wizard(hName, 35, 1.2, 4, fight,5, weapon);
                 break;
             } else if (hKlasse.equals("2")) {
-                hero.createBarbar(hName);
+                hero = new Barbar(hName, 50, 0.8, 10, 2, weapon, fight);
                 break;
             } else if (hKlasse.equals("3")) {
-                hero.createElb(hName);
+                hero = new Elb(hName, 40, 1.5, 7, 2, 1, weapon, fight);
                 break;
             } else{
                 System.out.println("Bitte gib eine Zahl zwischen 1 und 3 ein, um deine Heldenklasse zu wählen.");
@@ -110,19 +113,19 @@ private Fight fight;
             hMonster = scan.nextInt();
 
             if (hMonster == 1){
-                monster.createDystopius();
+                monster = new Monster("Dystopius", 60, 1.2, 11, 8, 600, fight);
                 aMonster[0] = monster;
                 break;
             } else if (hMonster==2){
-                monster.createLodan(monster);
+                monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
                 aMonster[1]=monster;
                 break;
             } else if (hMonster==3) {
-                monster.createMedusa();
+                monster = new Monster("Medusa", 45, 1.5, 7, 1, 300, fight);
                 aMonster[2] = monster;
                 break;
             } else if (hMonster==4) {
-                monster.createOhnekompromiss(monster);
+                monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, 700, fight);
                 aMonster[3] = monster;
                 break;
             } else {
