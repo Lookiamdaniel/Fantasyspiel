@@ -24,6 +24,7 @@ public class Fight {
                 + "Wenn das Monster RECHTS angreift, drücke 'D' und anschließend 'Enter'. \n"
                 + "Wenn das Monster OBEN angreift, drücke 'W' und anschließend 'Enter'. \n"
                 + "Wenn das Monster TIEF angreift, drücke 'S' und anschließend 'Enter'. \n\n"
+                + "Du kämpfst nun gegen " + monster.getName() + ". Hier musst du schnell sein, du hast nur 0." + monster.getSpeed() / 100 + " Sekunden Zeit, um zu reagieren.\n\n"
                 + "Wenn du bereit bist drücke 1!");
 
         while (true) {

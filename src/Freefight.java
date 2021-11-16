@@ -117,11 +117,12 @@ private Fight fight;
                 aMonster[0] = monster;
                 break;
             } else if (hMonster==2){
-                monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
+                monster = new Monster("Lodan", 55, 1, 13, 4, 2000, fight);
+                monster.createLodan(monster);
                 aMonster[1]=monster;
                 break;
             } else if (hMonster==3) {
-                monster = new Monster("Medusa", 45, 1.5, 7, 1, 300, fight);
+                monster = new Monster("Medusa", 45, 1.5, 7, 1, 3000, fight);
                 aMonster[2] = monster;
                 break;
             } else if (hMonster==4) {

@@ -34,6 +34,26 @@ public class Monster {
         return range;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLuck(double luck) {
+        this.luck = luck;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
     public double getLuck(){
         return luck;
     }
@@ -69,7 +89,12 @@ public class Monster {
         monster = new Monster("Ohnekompromiss", 50, 0.9, 10, 2, 700, fight);
     }
     public void createLodan(Monster monster){
-        monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
+        monster.setName("Lodan");
+        monster.setSpeed(900);
+        monster.setHealthpoints(55);
+        monster.setLuck(1);
+        monster.setStrength(13);
+        monster.setRange(4);
     }
     public void createMedusa(){
         Monster monster = new Monster("Medusa", 45, 1.5, 7, 1, 300, fight);
@@ -93,7 +118,7 @@ public class Monster {
             int randRange = random.nextInt(10);
 
             if (randRange <= winRange){
-                System.out.println("Das Monster hat eine kann auf größerer Entfernung angreifen, als du und nutzt diese. Du hast keine Chance.");
+                System.out.println("Das Monster kann auf größerer Entfernung angreifen, als du und nutzt diese. Du hast keine Chance.");
                 fight.setWinnerAttack(2);
                 fight.madeDamage();
             }

@@ -34,7 +34,9 @@ public class Story {
 
         weapon = new Weapon("Hände", 1, 1, 1);
         hero = new Hero(hName, 30, 1, 5, weapon, fight);
-        monster = new Monster("Lodan", 55, 1, 13, 4, 1000, fight);
+        monster = new Monster("Lodan", 55, 1, 13, 4, 900, fight);
+        monster.createLodan(monster);
+        System.out.println(monster.getName()+" ");
         fight = new Fight(hero, weapon, monster);
         hero.setFight(fight);
         monster.setFight(fight);
